@@ -15,7 +15,7 @@ $(document).ready(function(){
 	parent.pathWayRender(tempPagePaths);
 	/******************************* 显示导航条 结束****************************************/
 	
-	generalAjaxCallToLoadData("acquireProjectsByTeacher.action",teacherId,attachProjects);
+	generalAjaxCallToLoadData("acquireProjectsByTeacher.action",{"teacherId":teacherId},attachProjects);
 });
 
 function selectProject() {
@@ -27,7 +27,6 @@ function selectProject() {
 
 //加载项目
 function attachProjects(data) {
-	/*
 	if(!data.actionStatus) {
 		openGeneralMessageDialog("加载项目失败 请检查数据库连接");
 		return false;
@@ -43,10 +42,4 @@ function attachProjects(data) {
 		tempOption = "<option value='" + projectId + "'>" + projectName + "</option>";
 		$("#project").append(tempOption);
 	}
-	*/
-	tempOption1 = "<option value='" + "123456" + "'>" + "项目一" + "</option>";
-	$("#project").append(tempOption1);
-	
-	tempOption2 = "<option value='" + "234567" + "'>" + "项目二" + "</option>";
-	$("#project").append(tempOption2);
 }

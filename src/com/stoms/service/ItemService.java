@@ -430,6 +430,29 @@ public class ItemService {
 
 	}
 
+	public String findItemByTeacherId(String teacherId) {
+
+		String result = "";
+
+		List<Item> itemList = itemDAO.findByTeacherId(teacherId);
+
+		if (itemList == null) {
+			return "";
+		}
+		String[] excludes = { "teacher", "subTypeId", "subTypeName", "pmanage",
+				"ppay", "pconsult", "pavailableManageCredit", "pdepartmentPay",
+				"ppay3", "ptax1", "ptax2", "ptax3", "isTax", "items",
+				"departmentId", "assistanceName", "assistanceTel",
+				"assistanceMobile", "assistanceEmail", "teachers", "paidFunds",
+				"isFinished" };
+		if (itemList == null || itemList.size() == 0) {
+			return "";
+		}
+
+		result = JSONTranslation.arrayToJson(itemList, excludes);
+		return result;
+	}
+	
 	public String acquireItemInfoByItemID(String itemID) {
 
 		String result = "";

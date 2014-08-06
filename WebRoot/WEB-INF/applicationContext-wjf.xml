@@ -10,5 +10,9 @@
 		<property name="teacherDAO">
 			<ref bean="TeacherDAO" />
 		</property>
+		
+		<property name="itemService">
+			<ref bean="ItemService" />
+		</property>
 	</bean>
 </beans>

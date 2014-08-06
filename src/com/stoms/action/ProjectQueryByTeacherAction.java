@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.stoms.dao.TeacherDAO;
 import com.stoms.model.Teacher;
+import com.stoms.service.ItemService;
 import com.stoms.service.ProjectQueryAdminService;
 
 public class ProjectQueryByTeacherAction {
@@ -19,7 +20,7 @@ public class ProjectQueryByTeacherAction {
 	
 	private String teacherId;
 
-	private ProjectQueryAdminService projectQueryAdminService;
+	private ItemService itemService;
 	
 	private TeacherDAO teacherDAO;
 	
@@ -45,8 +46,7 @@ public class ProjectQueryByTeacherAction {
         teachername = tempTeacher.getTeacherName();
         departmentid = tempTeacher.getDepartmentId();
         
-		String projectList = projectQueryAdminService.itemQuery(
-				projectid,contractid,typeid,projectname,departmentid,departmenttype,teachername,startDate,endDate);
+		String projectList = itemService.findItemByTeacherId(teacherId);
 		if(projectList.equals("") ) {
 			this.actionStatus = false;
 			this.jsonResult = "";
@@ -82,13 +82,12 @@ public class ProjectQueryByTeacherAction {
 		this.teacherId = teacherId;
 	}
 
-	public ProjectQueryAdminService getProjectQueryAdminService() {
-		return projectQueryAdminService;
+	public ItemService getItemService() {
+		return itemService;
 	}
 
-	public void setProjectQueryAdminService(
-			ProjectQueryAdminService projectQueryAdminService) {
-		this.projectQueryAdminService = projectQueryAdminService;
+	public void setItemService(ItemService itemService) {
+		this.itemService = itemService;
 	}
 	
 	public TeacherDAO getTeacherDAO() {

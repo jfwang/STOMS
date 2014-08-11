@@ -199,7 +199,7 @@ function setSelectBox0(textItem, myArray) {
 		div0.onmouseover = showDiv0;  
 		div0.onmouseout = hideDiv0;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -217,7 +217,19 @@ function setSelectBox0(textItem, myArray) {
 
 function selectItem0(textItem) { 
 	var myArray = generateArray();
-	setSelectBox0(textItem, myArray); 
+	setSelectBox0(textItem, myArray);
+	var defaultSelected = $("#research").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox0.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox0[j].value == strs[i]) {  
+				form.checkbox0[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item1******************************/
@@ -259,7 +271,7 @@ function setSelectBox1(textItem, myArray) {
 		div1.onmouseover = showDiv1;  
 		div1.onmouseout = hideDiv1;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -277,7 +289,19 @@ function setSelectBox1(textItem, myArray) {
 
 function selectItem1(textItem) { 
 	var myArray = generateArray(); 
-	setSelectBox1(textItem, myArray); 
+	setSelectBox1(textItem, myArray);
+	var defaultSelected = $("#srbusiness").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox1.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox1[j].value == strs[i]) {  
+				form.checkbox1[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item2******************************/
@@ -319,7 +343,7 @@ function setSelectBox2(textItem, myArray) {
 		div2.onmouseover = showDiv2;  
 		div2.onmouseout = hideDiv2;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -338,6 +362,18 @@ function setSelectBox2(textItem, myArray) {
 function selectItem2(textItem) { 
 	var myArray = generateArray(); 
 	setSelectBox2(textItem, myArray); 
+	var defaultSelected = $("#test").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox2.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox2[j].value == strs[i]) {  
+				form.checkbox2[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item3******************************/
@@ -379,7 +415,7 @@ function setSelectBox3(textItem, myArray) {
 		div3.onmouseover = showDiv3;  
 		div3.onmouseout = hideDiv3;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -387,17 +423,29 @@ function setSelectBox3(textItem, myArray) {
 		}  
 		trs += '</table></div>';  
 		div3.innerHTML = trs;    
-		textItem.parentNode.appendChild(div3);  
+		textItem.parentNode.appendChild(div3);	
 	}  
 	else {  
 		//该复选下拉的层已经创建了，那么再次点击input表单的时候，显示  
 		showDiv3();  
-	}  
+	}
 }  
 
 function selectItem3(textItem) { 
 	var myArray = generateArray();
-	setSelectBox3(textItem, myArray); 
+	setSelectBox3(textItem, myArray);
+	var defaultSelected = $("#energy").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox3.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox3[j].value == strs[i]) {  
+				form.checkbox3[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item4******************************/
@@ -439,7 +487,7 @@ function setSelectBox4(textItem, myArray) {
 		div4.onmouseover = showDiv4;  
 		div4.onmouseout = hideDiv4;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -458,6 +506,18 @@ function setSelectBox4(textItem, myArray) {
 function selectItem4(textItem) { 
 	var myArray = generateArray(); 
 	setSelectBox4(textItem, myArray); 
+	var defaultSelected = $("#meetings").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox4.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox4[j].value == strs[i]) {  
+				form.checkbox4[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item5******************************/
@@ -499,7 +559,7 @@ function setSelectBox5(textItem, myArray) {
 		div5.onmouseover = showDiv5;  
 		div5.onmouseout = hideDiv5;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -517,7 +577,19 @@ function setSelectBox5(textItem, myArray) {
 
 function selectItem5(textItem) { 
 	var myArray = generateArray();
-	setSelectBox5(textItem, myArray); 
+	setSelectBox5(textItem, myArray);
+	var defaultSelected = $("#publishments").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox5.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox5[j].value == strs[i]) {  
+				form.checkbox5[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item6******************************/
@@ -559,7 +631,7 @@ function setSelectBox6(textItem, myArray) {
 		div6.onmouseover = showDiv6;  
 		div6.onmouseout = hideDiv6;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -577,7 +649,19 @@ function setSelectBox6(textItem, myArray) {
 
 function selectItem6(textItem) { 
 	var myArray = generateArray();
-	setSelectBox6(textItem, myArray); 
+	setSelectBox6(textItem, myArray);
+	var defaultSelected = $("#other_srbusiness").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox6.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox6[j].value == strs[i]) {  
+				form.checkbox6[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item7******************************/
@@ -619,7 +703,7 @@ function setSelectBox7(textItem, myArray) {
 		div7.onmouseover = showDiv7;  
 		div7.onmouseout = hideDiv7;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -637,7 +721,19 @@ function setSelectBox7(textItem, myArray) {
 
 function selectItem7(textItem) { 
 	var myArray = generateArray(); 
-	setSelectBox7(textItem, myArray); 
+	setSelectBox7(textItem, myArray);
+	var defaultSelected = $("#experiment_material").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox7.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox7[j].value == strs[i]) {  
+				form.checkbox7[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item8******************************/
@@ -679,7 +775,7 @@ function setSelectBox8(textItem, myArray) {
 		div8.onmouseover = showDiv8;  
 		div8.onmouseout = hideDiv8;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -697,7 +793,19 @@ function setSelectBox8(textItem, myArray) {
 
 function selectItem8(textItem) { 
 	var myArray = generateArray(); 
-	setSelectBox8(textItem, myArray); 
+	setSelectBox8(textItem, myArray);
+	var defaultSelected = $("#raw_material").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox8.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox8[j].value == strs[i]) {  
+				form.checkbox8[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item9******************************/
@@ -739,7 +847,7 @@ function setSelectBox9(textItem, myArray) {
 		div9.onmouseover = showDiv9;  
 		div9.onmouseout = hideDiv9;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -757,7 +865,19 @@ function setSelectBox9(textItem, myArray) {
 
 function selectItem9(textItem) { 
 	var myArray = generateArray();
-	setSelectBox9(textItem, myArray); 
+	setSelectBox9(textItem, myArray);
+	var defaultSelected = $("#other_material").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox9.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox9[j].value == strs[i]) {  
+				form.checkbox9[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item10******************************/
@@ -799,7 +919,7 @@ function setSelectBox10(textItem, myArray) {
 		div10.onmouseover = showDiv10;  
 		div10.onmouseout = hideDiv10;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -817,7 +937,19 @@ function setSelectBox10(textItem, myArray) {
 
 function selectItem10(textItem) { 
 	var myArray = generateArray();
-	setSelectBox10(textItem, myArray); 
+	setSelectBox10(textItem, myArray);
+	var defaultSelected = $("#equipment").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox10.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox10[j].value == strs[i]) {  
+				form.checkbox10[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item11******************************/
@@ -859,7 +991,7 @@ function setSelectBox11(textItem, myArray) {
 		div11.onmouseover = showDiv11;  
 		div11.onmouseout = hideDiv11;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -878,6 +1010,18 @@ function setSelectBox11(textItem, myArray) {
 function selectItem11(textItem) { 
 	var myArray = generateArray();
 	setSelectBox11(textItem, myArray); 
+	var defaultSelected = $("#equipment_purchase").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox11.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox11[j].value == strs[i]) {  
+				form.checkbox11[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item12******************************/
@@ -919,7 +1063,7 @@ function setSelectBox12(textItem, myArray) {
 		div12.onmouseover = showDiv12;  
 		div12.onmouseout = hideDiv12;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -937,7 +1081,19 @@ function setSelectBox12(textItem, myArray) {
 
 function selectItem12(textItem) { 
 	var myArray = generateArray(); 
-	setSelectBox12(textItem, myArray); 
+	setSelectBox12(textItem, myArray);
+	var defaultSelected = $("#equipment_produce").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox12.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox12[j].value == strs[i]) {  
+				form.checkbox12[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item13******************************/
@@ -979,7 +1135,7 @@ function setSelectBox13(textItem, myArray) {
 		div13.onmouseover = showDiv13;  
 		div13.onmouseout = hideDiv13;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -997,7 +1153,19 @@ function setSelectBox13(textItem, myArray) {
 
 function selectItem13(textItem) { 
 	var myArray = generateArray();
-	setSelectBox13(textItem, myArray); 
+	setSelectBox13(textItem, myArray);
+	var defaultSelected = $("#lab_reconstruction").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox13.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox13[j].value == strs[i]) {  
+				form.checkbox13[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item14******************************/
@@ -1039,7 +1207,7 @@ function setSelectBox14(textItem, myArray) {
 		div14.onmouseover = showDiv14;  
 		div14.onmouseout = hideDiv14;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -1058,6 +1226,18 @@ function setSelectBox14(textItem, myArray) {
 function selectItem14(textItem) { 
 	var myArray = generateArray();
 	setSelectBox14(textItem, myArray); 
+	var defaultSelected = $("#collaboration").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox14.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox14[j].value == strs[i]) {  
+				form.checkbox14[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item15******************************/
@@ -1099,7 +1279,7 @@ function setSelectBox15(textItem, myArray) {
 		div15.onmouseover = showDiv15;  
 		div15.onmouseout = hideDiv15;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -1117,7 +1297,19 @@ function setSelectBox15(textItem, myArray) {
 
 function selectItem15(textItem) { 
 	var myArray = generateArray();
-	setSelectBox15(textItem, myArray); 
+	setSelectBox15(textItem, myArray);
+	var defaultSelected = $("#international_communication").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox15.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox15[j].value == strs[i]) {  
+				form.checkbox15[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item16******************************/
@@ -1159,7 +1351,7 @@ function setSelectBox16(textItem, myArray) {
 		div16.onmouseover = showDiv16;  
 		div16.onmouseout = hideDiv16;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -1177,7 +1369,19 @@ function setSelectBox16(textItem, myArray) {
 
 function selectItem16(textItem) { 
 	var myArray = generateArray();
-	setSelectBox16(textItem, myArray); 
+	setSelectBox16(textItem, myArray);
+	var defaultSelected = $("#export_communication").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox16.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox16[j].value == strs[i]) {  
+				form.checkbox16[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item17******************************/
@@ -1219,7 +1423,7 @@ function setSelectBox17(textItem, myArray) {
 		div17.onmouseover = showDiv17;  
 		div17.onmouseout = hideDiv17;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -1237,7 +1441,19 @@ function setSelectBox17(textItem, myArray) {
 
 function selectItem17(textItem) { 
 	var myArray = generateArray();
-	setSelectBox17(textItem, myArray); 
+	setSelectBox17(textItem, myArray);
+	var defaultSelected = $("#import_communication").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox17.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox17[j].value == strs[i]) {  
+				form.checkbox17[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item18******************************/
@@ -1279,7 +1495,7 @@ function setSelectBox18(textItem, myArray) {
 		div18.onmouseover = showDiv18;  
 		div18.onmouseout = hideDiv18;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -1297,7 +1513,19 @@ function setSelectBox18(textItem, myArray) {
 
 function selectItem18(textItem) { 
 	var myArray = generateArray();
-	setSelectBox18(textItem, myArray); 
+	setSelectBox18(textItem, myArray);
+	var defaultSelected = $("#labour").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox18.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox18[j].value == strs[i]) {  
+				form.checkbox18[j].checked = true;     
+			}
+		}
+	}
 }
 
 /******************************select item19******************************/
@@ -1339,7 +1567,7 @@ function setSelectBox19(textItem, myArray) {
 		div19.onmouseover = showDiv19;  
 		div19.onmouseout = hideDiv19;  
 		//下拉层的位置、下拉滚动等样式  
-		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:150px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
+		var trs = '<div id="tableDiv" style="position:abosolute;text-align: center;OVERFLOW: auto; SCROLLBAR-BASE-COLOR: #cccccc; HEIGHT: 200px;SCROLLBAR-FACE-COLOR: #ffffff;top:' + top + '; left:' + itemLeft + ';WIDTH:390px;Z-INDEX: 1;SCROLLBAR-SHADOW-COLOR:#cccccc;SCROLLBAR-ARROW-COLOR: #cccccc;SCROLLBAR-3DLIGHT-COLOR: #cccccc; background-color: #ffffff; border: 1px solid grey"><table>';  
 		trs += '<table>';  
 		//初始化下拉的选项  
 		for (var key in myArray) {  
@@ -1357,5 +1585,17 @@ function setSelectBox19(textItem, myArray) {
 
 function selectItem19(textItem) { 
 	var myArray = generateArray();
-	setSelectBox19(textItem, myArray); 
+	setSelectBox19(textItem, myArray);
+	var defaultSelected = $("#management").val();
+	var strs = defaultSelected.split(";");
+	
+	var form = document.getElementById("mappingForm");  
+	var len = form.checkbox19.length; 
+	for(var i=0;i<strs.length;i++) {
+		for(var j=0;j<len;j++) {
+			if (form.checkbox19[j].value == strs[i]) {  
+				form.checkbox19[j].checked = true;     
+			}
+		}
+	}
 }

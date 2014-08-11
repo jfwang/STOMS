@@ -14,10 +14,10 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver">
 		</property>
-		<property name="url" value="jdbc:sqlserver://114.212.82.89:1433">
+		<property name="url" value="jdbc:sqlserver://114.212.85.60:1433">
 		</property>
 		<property name="username" value="sa"></property>
-		<property name="password" value="database"></property>
+		<property name="password" value="reacher"></property>
 	</bean>
 	
 	<bean id="sessionFactory"
@@ -35,7 +35,7 @@
 		<property name="mappingResources">
 			<list>
 
-
+				<value>com/stoms/model/BudgetMapping.hbm.xml</value>
 				<value>com/stoms/model/TeacherTitle.hbm.xml</value>
 				<value>com/stoms/model/Department.hbm.xml</value>
 				<value>com/stoms/model/TeacherItem.hbm.xml</value>
@@ -127,8 +127,12 @@
 	<import resource="./applicationContext-wjf.xml" />
 	<import resource="./applicationContext-upload.xml" />
 
-
-
+	<bean id="BudgetMappingDAO"
+		class="com.stoms.dao.BudgetMappingDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 	<bean id="TeacherTitleDAO"
 		class="com.stoms.dao.TeacherTitleDAO">
 		<property name="sessionFactory">

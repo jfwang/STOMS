@@ -195,17 +195,17 @@ function renderAllQueryResult(data) {
 		for(var i = queryResultItemList.length-1; i >=(queryResultItemList.length- count) ; i--) {
 			var tempItemInfo = queryResultItemList[i];
 			var tempRowData = new Array();
-			tempRowData.push(tempItemInfo[0]);//项目PK
-			tempRowData.push(tempItemInfo[1]);
-			tempRowData.push(tempItemInfo[2]);
-			if(tempItemInfo[4] == "" || tempItemInfo[4] == null){
-				tempRowData.push(tempItemInfo[3]);
+			tempRowData.push(tempItemInfo.itemPk);//项目PK
+			tempRowData.push(tempItemInfo.itemId);
+			tempRowData.push(tempItemInfo.itemName);
+			if(tempItemInfo.otherTeacher == "" || tempItemInfo.otherTeacher == null){
+				tempRowData.push(tempItemInfo.teacherName);
 			}else{
-				tempRowData.push(tempItemInfo[3]+"  "+tempItemInfo[4]);
+				tempRowData.push(tempItemInfo.teacherName +"  " + tempItemInfo.otherTeacher);
 			}
 			
-			tempRowData.push(tempItemInfo[5]);
-			tempRowData.push(tempItemInfo[6]);
+			tempRowData.push(tempItemInfo.departmentName);
+			tempRowData.push(tempItemInfo.typeId);
 			singleProjectQueryTable.fnAddData( tempRowData );
 		}
 	}

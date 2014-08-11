@@ -66,9 +66,11 @@ public class ItemDAO extends HibernateDaoSupport  {
 		Session session = this.getSession();
 	   log.debug("finding ItemInfo By Manager");
 	   try {
-	   	String queryString = "select model.itemPk,model.itemId,model.itemName,model.teacherName," +
+		   //difference of two methods: former method can't return correct json format
+	   	/*String queryString = "select model.itemPk,model.itemId,model.itemName,model.teacherName," +
 	   			"model.otherTeacher,model.departmentName,model.typeId from Item as model where 1=1";
-	   	
+	   	*/
+	   	String queryString = "from Item as model where 1=1";
 	   	if(itemid.length()!=0){
 	   		queryString+=" and model.itemId='"+itemid+"'";
 	   	}
@@ -97,7 +99,7 @@ public class ItemDAO extends HibernateDaoSupport  {
 	   		queryString+=" and model.timeUpper <'"+upperYear+"' and model.timeUpper !=''";
 	   	}
 	   	
-	   	System.out.println("queryString:"+queryString);
+	   	//System.out.println("queryString:"+queryString);
 	   	Query query = session.createQuery(queryString); 
 	
 	   	return query.list();

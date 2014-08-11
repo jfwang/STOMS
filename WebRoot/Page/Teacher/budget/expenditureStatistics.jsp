@@ -19,10 +19,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	<link rel="stylesheet" type="text/css" href="CSS/page.css">
+	
+	<script type="text/javascript" src="JqueryLib/development-bundle/jquery-1.6.2.js"></script>
+	<script type="text/javascript" src="JS/common/util.js"></script>
+	<script type="text/javascript" src="JS/teacher/budget/expenditureStatistics.js"></script>
+	<script type="text/javascript">
+  		var projectId = "<%=request.getParameter("projectId")%>";
+	</script>
+	
   </head>
   
   <body>
-    This is my JSP page. <br>
+    <label id = "test"></label>
   </body>
 </html>

@@ -15,4 +15,18 @@
 			<ref bean="ItemService" />
 		</property>
 	</bean>
+	
+	<bean id="BudgetMappingAction" class="com.stoms.action.BudgetMappingAction"
+		scope="prototype">
+		<property name="budgetMappingService">
+			<ref bean="BudgetMappingService" />
+		</property>
+	</bean>
+	
+	<bean id="BudgetMappingService" class="com.stoms.service.BudgetMappingService"
+		scope="prototype">
+		<property name="budgetMappingDAO">
+			<ref bean="BudgetMappingDAO" />
+		</property>
+	</bean>
 </beans>

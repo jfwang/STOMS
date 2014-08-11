@@ -9,6 +9,10 @@ $(document).ready(function(){
 	var tempPagePaths = [
 	                 {
 	                	"name":"经费统计",
+	                	"href":""
+	                 },
+	                 {
+	                	"name":"支出查询",
 		                "href":""
 	                 }];
 	parent.pathWayRender(tempPagePaths);

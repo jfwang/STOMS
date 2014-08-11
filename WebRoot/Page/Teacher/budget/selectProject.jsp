@@ -21,8 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
   	<link rel="stylesheet" type="text/css" href="CSS/page.css">
-	
-	<script type="text/javascript" src="JqueryLib/development-bundle/jquery-1.6.2.js"></script>
+	<script type="text/javascript" src="JqueryLib/js/jquery-1.7.js"></script>
 	<script type="text/javascript" src="JS/common/util.js"></script>
 	<script type="text/javascript" src="JS/teacher/budget/selectProject.js"></script>
   
@@ -65,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
     		</tr>
     	</table>
-    	<button type="button" onclick = "selectProject()">下一步</button>
+    	<button type="button" id = "nextButton">下一步</button>
     </form>
     </div>
   </body>

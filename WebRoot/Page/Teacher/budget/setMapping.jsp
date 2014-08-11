@@ -59,9 +59,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    	<caption><h3>预算分配</h3></caption>
 		    	<tr>
 					<td>
-						<center><h4>经费科目</h4></center>
+						<center><h4>预算科目</h4></center>
 					</td>
-
 					<td>
 						<center><h4>包含支出科目</h4></center>
 					</td>
@@ -72,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "research"/></center>
+						<center><input type="text" readonly id="research" onclick="selectItem0(this)"/> </center>
 					</td>
 				</tr>
 				<tr>
@@ -81,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "srbusiness"/></center>
+						<center><input type="text" readonly id = "srbusiness" onclick="selectItem1(this)"/></center>
 					</td>
 				</tr>
 				<tr>			
@@ -90,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "test"/></center>
+						<center><input type="text" readonly id = "test" onclick="selectItem2(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -99,7 +98,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "energy"/></center>
+						<center><input type="text" readonly id = "energy" onclick="selectItem3(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -108,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "meetings"/></center>
+						<center><input type="text" readonly id = "meetings" onclick="selectItem4(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -117,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "publishments"/></center>
+						<center><input type="text" readonly id = "publishments" onclick="selectItem5(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -126,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "other_srbusiness"/></center>
+						<center><input type="text" readonly id = "other_srbusiness" onclick="selectItem6(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -135,7 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "experiment_material"/></center>
+						<center><input type="text" readonly id = "experiment_material" onclick="selectItem7(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -144,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "raw_material"/></center>
+						<center><input type="text" readonly id = "raw_material" onclick="selectItem8(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -153,7 +152,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "other_material"/></center>
+						<center><input type="text" readonly id = "other_material" onclick="selectItem9(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -162,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "equipment"/></center>
+						<center><input type="text" readonly id = "equipment" onclick="selectItem10(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -171,7 +170,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "equipment_purchase"/></center>
+						<center><input type="text" readonly id = "equipment_purchase" onclick="selectItem11(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -180,7 +179,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "equipment_produce"/></center>
+						<center><input type="text" readonly id = "equipment_produce" onclick="selectItem12(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -189,7 +188,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "lab_reconstruction"/></center>
+						<center><input type="text" readonly id = "lab_reconstruction" onclick="selectItem13(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -198,7 +197,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "collaboration"/></center>
+						<center><input type="text" readonly id = "collaboration" onclick="selectItem14(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -207,7 +206,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "international_communication"/></center>
+						<center><input type="text" readonly id = "international_communication" onclick="selectItem15(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -216,7 +215,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "export_communication"/></center>
+						<center><input type="text" readonly id = "export_communication" onclick="selectItem16(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -225,7 +224,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "import_communication"/></center>
+						<center><input type="text" readonly id = "import_communication" onclick="selectItem17(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -234,7 +233,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "labour"/></center>
+						<center><input type="text" readonly id = "labour" onclick="selectItem18(this)"/></center>
 					</td>
 				</tr>
 				<tr>
@@ -243,16 +242,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 					
 					<td>
-						<center><input type="text" id = "management"/></center>
+						<center><input type="text" readonly id = "management" onclick="selectItem19(this)"/></center>
 					</td>
 				</tr>
 		    </table>
 		    <button type="button" id = "resetButton">恢复默认</button>
 		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    <button type="reset">清空设置</button>
+		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		    <button type="button" id = "saveButton">保存设置</button>
 		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
 		    <button type="button" id = "startButton">开始统计</button>
 	    </form>
+	    <label id = "testResult"></label>
 	</div>
   </body>
 </html>

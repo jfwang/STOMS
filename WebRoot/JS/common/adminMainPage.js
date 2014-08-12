@@ -49,6 +49,11 @@ var menuItems = [
 						"name":"expenditureStatistics",
 						"showName":"支出统计",
 						"href":"Page/Teacher/budget/selectProject.jsp"
+					},
+					{
+						"name":"setDefaultMapping",
+						"showName":"修改映射",
+						"href":"Page/Admin/fundamentalDataMaintainance/setDefaultMapping.jsp"
 					}
 				];
 

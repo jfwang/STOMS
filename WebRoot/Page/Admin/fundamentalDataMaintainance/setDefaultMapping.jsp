@@ -23,10 +23,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<script type="text/javascript" src="JqueryLib/js/jquery-1.7.js"></script>
 	<script type="text/javascript" src="JS/common/util.js"></script>
-	<script type="text/javascript" src="JS/teacher/budget/setMapping.js"></script>
+	<script type="text/javascript" src="JS/admin/fundamentalDataMaintainance/setDefaultMapping.js"></script>
 	
 	<script type="text/javascript">
-  		var projectId = "<%=request.getParameter("projectId")%>";
   		var teacherId = "<%=session.getAttribute("curr_teacherID")%>";
 	</script>
 	
@@ -56,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div align = "center">
 	    <form method = "post" id = "mappingForm">
 		    <table>
-		    	<caption><h3>预算分配</h3></caption>
+		    	<caption><h3>编辑默认预算分配</h3></caption>
 		    	<tr>
 					<td>
 						<center><h4>预算科目</h4></center>
@@ -246,13 +245,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
 				</tr>
 		    </table>
-		    <button type="button" id = "resetButton">恢复默认</button>
+		    <button type="button" id = "resetButton">恢复设置</button>
 		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		    <button type="button" id = "clearButton">清空设置</button>
 		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		    <button type="button" id = "saveButton">保存设置</button>
-		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
-		    <button type="button" id = "startButton">开始统计</button>
 	    </form>
 	</div>
   </body>

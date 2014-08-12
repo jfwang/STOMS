@@ -17,7 +17,7 @@ $(document).ready(function(){
 	
 
 	$("#resetButton").click(function(check) {
-		if(confirm("确定恢复默认设置么？") == true) {
+		if(confirm("确定恢复之前默认设置么？") == true) {
 			generalAjaxCallToLoadData("acquireMapping.action",{"projectId":"000000"},initializeMapping);
 		}
 	});
@@ -53,17 +53,10 @@ $(document).ready(function(){
 			generalAjaxCallToLoadData("saveMapping.action",submitData,showSaveMappingResult);
 		}
 	});
-	
-	$("#startButton").click(function(check) {
-		if(confirm("请确认开始统计前已保存页面设置！") == true) {
-			var url = "Page/Teacher/budget/expenditureStatistics.jsp?projectId=" + projectId + "&flag=0";
-			parent.pageTransition(url);
-		}
-	});
 	/**
 	 * acquire the budget mapping by project id
 	 */
-	generalAjaxCallToLoadData("acquireMapping.action",{"projectId":projectId},initializeMapping);
+	generalAjaxCallToLoadData("acquireMapping.action",{"projectId":"000000"},initializeMapping);
 });
 
 function initializeMapping(data){
@@ -132,7 +125,7 @@ function acquireFormData() {
 	var management = $("#management").val();
 	
 	var formData = {};
-	formData["projectId"] = projectId;
+	formData["projectId"] = "000000";
 	formData["manager"] = teacherId;
 	formData["research"] = research;
 	formData["srbusiness"] = srbusiness;

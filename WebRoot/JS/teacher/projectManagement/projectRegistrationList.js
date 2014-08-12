@@ -55,9 +55,9 @@ function initializePageContent(data){
 			tempRowData.push(tempItemInfo.projectType.typeId);//项目类型ID
 			tempRowData.push(tempItemInfo.projectType.budgetType);//预算类型
 			tempRowData.push(tempItemInfo.projectStatus);//状态
-			tempRowData.push(tempItemInfo.projectStatus);//状态代码
-			tempRowData.push(tempItemInfo.itemId);//入账申请
-			tempRowData.push(tempItemInfo.itemPk);//支出登记
+			tempRowData.push(tempItemInfo.itemId);//预算信息
+			tempRowData.push(tempItemInfo.itemId);//预算分配
+			tempRowData.push(tempItemInfo.itemId);//经费统计
 			
 			
 			tableData.push(tempRowData);
@@ -76,11 +76,11 @@ function initializePageContent(data){
 	
 	tableTagArray.push({ "sTitle": "项目ItemPK", "sClass": "center", "bVisible": false, "bSearchable": false});
 	
-	tableTagArray.push({ "sTitle": "名称", "sClass": "center", "sWidth": "35%",
+	tableTagArray.push({ "sTitle": "名称", "sClass": "center", "sWidth": "21%",
 							"fnRender": function(obj){
 								 var itemName = obj.aData[ obj.iDataColumn];
 								 var itemTypeID = obj.aData[ obj.iDataColumn + 2];
-								 var itemState = obj.aData[ obj.iDataColumn + 5];
+								 var itemState = obj.aData[ obj.iDataColumn + 4];
 								 var itemPK = obj.aData[ obj.iDataColumn - 1];
 								 var tempItemInfo = {"itemPK":itemPK, "itemState":itemState, "itemTypeID":itemTypeID};
 								 var tempItemInfoStr = jsonToString(tempItemInfo);
@@ -88,69 +88,39 @@ function initializePageContent(data){
 								 return tempHref;
 							 }});
 	
-	tableTagArray.push({ "sTitle": "经费卡号", "sClass": "center", "sWidth": "12%" });
+	tableTagArray.push({ "sTitle": "经费卡号", "sClass": "center", "sWidth": "15%" });
 	
-	tableTagArray.push({ "sTitle": "项目类型", "sClass": "center", "sWidth": "14%" });
+	tableTagArray.push({ "sTitle": "项目类型", "sClass": "center", "sWidth": "15%" });
 	
 	tableTagArray.push({ "sTitle": "项目类型ID", "sClass": "center", "bVisible": false, "bSearchable": false});
 	
 	tableTagArray.push({ "sTitle": "预算类型", "sClass": "center", "bVisible": false, "bSearchable": false});
 	
-	tableTagArray.push({ "sTitle": "状态", "sClass": "center", "sWidth": "10%", 
-							"fnRender": function(obj){
-								 var itemState = obj.aData[ obj.iDataColumn ];
-								 var tempProjectType = projectStateArrayGlobalVariable[itemState];
-								 return tempProjectType;
-							 }});
-	
 	tableTagArray.push({ "sTitle": "状态代码", "sClass": "center", "bVisible": false, "bSearchable": false});
 	
-	tableTagArray.push({ "sTitle": "入账申请", "sClass": "center", "sWidth": "12%", "bSortable": false,
-		 "fnRender": function(obj){
-			 var itemID = obj.aData[ obj.iDataColumn ];
-			 var itemState = obj.aData[ obj.iDataColumn - 1];
-			 var tempItemInfo = {"itemID":itemID, "itemState":itemState};
+	tableTagArray.push({ "sTitle": "预算信息", "sClass": "center", "sWidth": "13%", 
+							"fnRender": function(obj){
+								 var projectId = obj.aData[ obj.iDataColumn];
+								 var tempItemInfo = {"projectId":projectId};
+								 var tempItemInfoStr = jsonToString(tempItemInfo);
+								 var tempHref = "<a onclick = \"verifyBudget(" + tempItemInfoStr + ")\">查看/修改</a>";
+								 return tempHref;
+							 }});
+	tableTagArray.push({ "sTitle": "预算分配", "sClass": "center", "sWidth": "13%", 
+		"fnRender": function(obj){
+			 var projectId = obj.aData[ obj.iDataColumn];
+			 var tempItemInfo = {"projectId":projectId};
 			 var tempItemInfoStr = jsonToString(tempItemInfo);
-			 var addInAccountButton = "<a onclick = \"addInAccountButtonResponse(" + tempItemInfoStr + ")\"";
-			 if(itemState == "10") {
-				 addInAccountButton = addInAccountButton +  " style=\"color: #808080;\"";
-			 }
-			 addInAccountButton = addInAccountButton + ">申请</a>";
-			 
-			 var inAccountHistroyButton = "<a onclick = \"inAccountHistroyButtonResponse(" + tempItemInfoStr + ")\"";
-			 if(itemState == "10") {
-				 inAccountHistroyButton = inAccountHistroyButton +  " style=\"color: #808080;\"";
-			 }
-			 inAccountHistroyButton = inAccountHistroyButton + ">记录</a>";
-			 
-			 var tempReturnResult = addInAccountButton + "&nbsp;" + inAccountHistroyButton;
-			 return tempReturnResult;
+			 var tempHref = "<a onclick = \"setMapping(" + tempItemInfoStr + ")\">查看/修改</a>";
+			 return tempHref;
 		 }});
-	
-	tableTagArray.push({ "sTitle": "经费管理", "sClass": "center", "sWidth": "12%", "bSortable": false,
-		 "fnRender": function(obj){
-			 var itemPK = obj.aData[ obj.iDataColumn ];
-			 var itemState = obj.aData[ obj.iDataColumn - 2];
-			 var itemBudgetType = obj.aData[ obj.iDataColumn - 4];
-			 var tempItemInfo = {"itemPK":itemPK, "itemState":itemState, "itemBudgetType":itemBudgetType};
+	tableTagArray.push({ "sTitle": "经费统计", "sClass": "center", "sWidth": "13%", 
+		"fnRender": function(obj){
+			 var projectId = obj.aData[ obj.iDataColumn];
+			 var tempItemInfo = {"projectId":projectId};
 			 var tempItemInfoStr = jsonToString(tempItemInfo);
-			 
-			 var addPayRegisterButton = "<a onclick = \"addPayRegisterButtonResponse(" + tempItemInfoStr + ")\"";
-			 if(itemState == "10" 
-				 || !(itemBudgetType == "1" || itemBudgetType == "2" || itemBudgetType == "3" || itemBudgetType == "4")) {
-				 addPayRegisterButton = addPayRegisterButton +  " style=\"color: #808080;\"";
-			 }
-			 addPayRegisterButton = addPayRegisterButton + ">登记</a>";
-			 
-			 var payRegisterHistroyButton = "<a onclick = \"payRegisterHistroyButtonResponse(" + tempItemInfoStr + ")\"";
-			 if(itemState == "10"
-				 || !(itemBudgetType == "1" || itemBudgetType == "2" || itemBudgetType == "3" || itemBudgetType == "4")) {
-				 payRegisterHistroyButton = payRegisterHistroyButton +  " style=\"color: #808080;\"";
-			 }
-			 payRegisterHistroyButton = payRegisterHistroyButton + ">记录</a>";
-			 
-			 var tempReturnResult = addPayRegisterButton + "&nbsp;" + payRegisterHistroyButton;
-			 return tempReturnResult;
+			 var tempHref = "<a onclick = \"startCalculate(" + tempItemInfoStr + ")\">开始统计</a>";
+			 return tempHref;
 		 }});
 	
 //	tableTagArray.push({ "sTitle": "预算调整", "sClass": "center", "sWidth": "12%", "bSortable": false,
@@ -194,6 +164,27 @@ function initializePageContent(data){
 		
 		$('input[type="checkbox"]', projectRegistrationDataTable.fnGetNodes()).attr('checked',this.checked);
 	  });
+}
+
+//点击确认预算链接的响应事件
+function verifyBudget(tempItemInfo) {
+	var projectId = tempItemInfo.projectId;
+	var detailInfoUrl = "Page/Teacher/budget/verifyBudget.jsp?projectId=" + projectId + "&flag=0";
+	parent.pageTransition(detailInfoUrl);
+}
+
+//点击查看预算分配链接的响应事件
+function setMapping(tempItemInfo) {
+	var projectId = tempItemInfo.projectId;
+	var detailInfoUrl = "Page/Teacher/budget/setMapping.jsp?projectId=" + projectId + "&flag=0";
+	parent.pageTransition(detailInfoUrl);
+}
+
+//点击确认开始统计的响应事件
+function startCalculate(tempItemInfo) {
+	var projectId = tempItemInfo.projectId;
+	var detailInfoUrl = "Page/Teacher/budget/expenditureStatistics.jsp?projectId=" + projectId + "&flag=0";
+	parent.pageTransition(detailInfoUrl);
 }
 
 //点击项目信息按钮的响应事件，即跳入项目主键为itemPK的项目登记页面

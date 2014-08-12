@@ -57,20 +57,27 @@ $(document).ready(function(){
 	var tableTagArray = new Array();
 	
 	tableTagArray.push({ "sTitle": "departmentPK", "sClass": "center", "bVisible": false, "bSearchable": false});
-	tableTagArray.push({ "sTitle": "项目ID", "sClass": "center", "sWidth": "15%" ,
+	tableTagArray.push({ "sTitle": "项目ID", "sClass": "center", "sWidth": "12%" ,
 		"fnRender":function(obj){
 			var itemPK = obj.aData[ obj.iDataColumn -1];
 			var itemID = obj.aData[ obj.iDataColumn ];
 			var tempItemInfo = {"itemPK":itemPK,"itemID":itemID};
 			var tempItemInfoStr = jsonToString(tempItemInfo);
 			var tempHref = "<a onclick = \"detailInfoButtonResponse(" + tempItemInfoStr + ")\">" + itemID + "</a>";
-			 return tempHref;
+			return tempHref;
 		}});
-	tableTagArray.push({ "sTitle": "项目名称", "sClass": "center", "sWidth": "28%" });
+	tableTagArray.push({ "sTitle": "项目名称", "sClass": "center", "sWidth": "20%" });
 	tableTagArray.push({ "sTitle": "负责人", "sClass": "center", "sWidth": "10%" });
 	tableTagArray.push({ "sTitle": "院系", "sClass": "center", "sWidth": "25%" });
 	tableTagArray.push({ "sTitle": "项目类型", "sClass": "center", "sWidth": "13%" });
-	//tableTagArray.push({ "sTitle": "项目状态", "sClass": "center", "sWidth": "15%" });
+	tableTagArray.push({ "sTitle": "预算信息", "sClass": "center", "sWidth": "15%" ,
+		"fnRender":function(obj){
+			var projectId = obj.aData[ obj.iDataColumn];
+			var tempItemInfo = {"projectId":projectId};
+			var tempItemInfoStr = jsonToString(tempItemInfo);
+			var tempHref = "<a onclick = \"verifyBudget(" + tempItemInfoStr + ")\">查看/修改</a>";
+			return tempHref;
+		}});
 	
 	//tableTagArray.push({ "sTitle": "typeid", "sClass": "center", "bVisible": false, "bSearchable": false});
 	//tableTagArray.push({ "sTitle": "状态代码", "sClass": "center", "bVisible": false, "bSearchable": false});
@@ -206,6 +213,7 @@ function renderAllQueryResult(data) {
 			
 			tempRowData.push(tempItemInfo.departmentName);
 			tempRowData.push(tempItemInfo.typeId);
+			tempRowData.push(tempItemInfo.itemId);
 			singleProjectQueryTable.fnAddData( tempRowData );
 		}
 	}
@@ -223,6 +231,12 @@ function detailInfoButtonResponse(tempItemInfo) {
 
 }
 
+//预算信息
+function verifyBudget(tempItemInfo) {
+	var projectId = tempItemInfo.projectId;
+	var detailInfoUrl = "Page/Teacher/budget/verifyBudget.jsp?projectId=" + projectId + "&flag=0";
+	parent.pageTransition(detailInfoUrl);
+}
 
 //入账历史查看按钮的点击响应事件
 function inAccountHistroyButtonResponse(tempItemInfo) {

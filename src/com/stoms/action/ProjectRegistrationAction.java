@@ -271,7 +271,6 @@ public class ProjectRegistrationAction extends ActionSupport {
 
 		if (this.itemPK == null || this.itemName == null
 				|| this.itemType == null || this.teacherName == null 
-						|| this.otherTeacher == null 
 				|| this.teacherId == null || this.departmentName == null
 				|| this.departmentType == null || this.itemValue == null
 				|| this.timeLower == null || this.timeUpper == null

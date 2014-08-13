@@ -54,8 +54,8 @@ public class ProjectQueryAdminService {
 
 		if (list == null || list.size() == 0)
 			return "";
-		String result1 = JSONTranslation.arrayToJson(list, excludes);
-		String result2 = itemService.findItemByTeacherName(teachername);
+		//String result1 = JSONTranslation.arrayToJson(list, excludes);
+		//String result2 = itemService.findItemByTeacherName(teachername);
 		return JSONTranslation.arrayToJson(list, excludes);
 
 	}
